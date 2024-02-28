@@ -14,7 +14,8 @@
                 chances.push(false);
               }
             }
-            let index = Math.round(Math.random()*(chances.length-1));
+            //let index = Math.round(Math.random()*(chances.length-1));
+            let index = Math.min(Math.floor(Math.random()*chances.length), chances.length-1);
             let item = chances[index];
             if(item instanceof DropTable) {
               return item.roll();
