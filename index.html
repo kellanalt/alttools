@@ -13,16 +13,16 @@
         let normalisedWeights;
       };
 
-      function getReddit() {
+      function getReddit(callback) {
         let request = fetch("https://corsproxy.io/?https://rss.reddit.com/").then((response) => {
-          console.log(response);
+            response.text(response => callback((new window.DOMParser()).parseFromString(response, "text/xml")))
         });
       }
     </script>
   </head>
   <body>
     
-    <button onclick="getReddit()">Get</button>
+    <button onclick="getReddit(console.log)">Get</button>
     <div id="map"></div>
   </body>
 </html>
