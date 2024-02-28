@@ -35,7 +35,8 @@
         for(let drop of tileWeightings.drops) {
             count.push([drop.drop, drops.reduce((a, b) => {if(b==drop.drop){return 1+a;}else{return a;}}, 0)]);
         }
-          return console.log(count);
+        
+          return console.log(count, drops);
       }
       
         let map = [];
