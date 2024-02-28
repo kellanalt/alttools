@@ -6,8 +6,13 @@
           constructor() {this.drops=[];this.size;}
           roll() {
             let chances = [];
-            for(let drop of drops) {
+            for(let drop of this.drops) {
               for(let i=0; i<drop.weight;i++) {chances.push(drop.drop);}
+            }
+            if(chances.length < this.size) {
+              for(let i=0; i<(this.size-chances.length); i++) {
+                chances.push(false);
+              }
             }
             let index = Math.round(Math.random()*(chances.length-1));
             let item = chances[index];
@@ -19,12 +24,14 @@
           }
         }
         let map = [];
-        let tileWeightings = [
-          {name: "Trees", weight: [5, 100]},
-          {name: "Stone", weight: [5, 100]},
-          {name: "Ore", weight: [1, 100]},
-          {name: "Water", weight: [5, 100]},
-        ];
+        let tileWeightings = new DropTable();
+        tileWeightings.size = 100;
+        tileWeightings().drops = [
+            {drop: "Trees", weight: 5},
+            {drop: "Water", weight: 5},
+            {drop: "Stone", weight: 5},
+            {drop: "Ore", weight: 5},
+          ];
       let generateTile = () => {
         let normalisedWeights;
       };
