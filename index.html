@@ -24,6 +24,19 @@
           }
         }
         }
+
+      function testDrops(n) {
+        let drops = [];
+        for(let i=0; i<10000000; i++) {
+            drops.push(tileWeightings.roll());
+        }
+
+        let count = [];
+        for(let drop of tileWeightings.drops) {
+            count.push([drop.drop, drops.reduce((a, b) => {if(b==drop.drop){return 1+a;}else{return a;}}, 0)]);
+        }
+          return console.log(count);
+      }
       
         let map = [];
         let tileWeightings = new DropTable();
