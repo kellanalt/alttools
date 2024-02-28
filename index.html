@@ -2,14 +2,27 @@
   <head>
     <script src="jquery.js"></script>
     <script>
-      function interact() {
-        $("#balls").html("pissan");
+        let map = [];
+        let tileWeightings = [
+          {name: "Trees", weight: [5, 100]},
+          {name: "Stone", weight: [5, 100]},
+          {name: "Ore", weight: [1, 100]},
+          {name: "Water", weight: [5, 100]},
+        ];
+      let generateTile = () => {
+        let normalisedWeights;
+      };
+
+      function getReddit() {
+        let request = fetch("https://rss.reddit.com/").then((response) => {
+          console.log(response);
+        });
       }
     </script>
   </head>
   <body>
-    Testing
-    <div id="balls">yo what's up</div>
-    <button onclick="interact()">sup gayboi</button>
+    
+    <button onclick="getReddit()">Get</button>
+    <div id="map"></div>
   </body>
 </html>
