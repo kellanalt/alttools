@@ -2,6 +2,22 @@
   <head>
     <script src="jquery.js"></script>
     <script>
+        class DropTable {
+          constructor() {this.drops=[];this.size;}
+          roll() {
+            let chances = [];
+            for(let drop of drops) {
+              for(let i=0; i<drop.weight;i++) {chances.push(drop.drop);}
+            }
+            let index = Math.round(Math.random()*(chances.length-1));
+            let item = chances[index];
+            if(item instanceof DropTable) {
+              return item.roll();
+            }
+            else {
+              return item;
+          }
+        }
         let map = [];
         let tileWeightings = [
           {name: "Trees", weight: [5, 100]},
