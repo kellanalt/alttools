@@ -9,6 +9,7 @@
             for(let drop of this.drops) {
               for(let i=0; i<drop.weight;i++) {chances.push(drop.drop);}
             }
+            console.log(chances);
             if(chances.length < this.size) {
               for(let i=0; i<(this.size-chances.length); i++) {
                 chances.push(false);
